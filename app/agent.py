@@ -87,8 +87,8 @@ class CompanionAgent:
         )
         return response.output_text.strip()
 
-        def _get_latest_user_message(self, history: list[dict[str, str]]) -> str:
-            for item in reversed(history):
-                if item["role"] == "user":
-                    return item["text"]
-            return ""
+    def _get_latest_user_message(self, history: list[dict[str, str]]) -> str:
+        for item in reversed(history):
+            if item["role"] == "user":
+                return item["text"]
+        return ""
