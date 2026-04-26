@@ -30,19 +30,12 @@ class CompanionAgent:
         for item in history:
             input_messages.append({"role": item["role"], "content": item["text"]})
 
-        # This is the main OpenAI response generation call for user messages.
-       # response = await asyncio.to_thread(
-       #     self.client.responses.create,
-        #    model=self.model,
-         #   input=input_messages,
-       # )
-       # return response.output_text.strip()
         response = self.client.chat.completions.create(
             model=self.model,
             messages=input_messages,
         )
 
-return response.choices[0].message.content.strip()
+        return response.choices[0].message.content.strip()
 
     async def generate_morning_message(self, chat_id: int) -> str:
         history = self.memory.get_messages(chat_id)
