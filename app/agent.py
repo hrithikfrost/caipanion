@@ -38,8 +38,8 @@ class CompanionAgent:
        # )
        # return response.output_text.strip()
         response = self.client.chat.completions.create(
-        model=self.model,
-        messages=input_messages,
+            model=self.model,
+            messages=input_messages,
         )
 
 return response.choices[0].message.content.strip()
