@@ -16,7 +16,10 @@ Do not sound robotic or overly formal.
 
 class CompanionAgent:
     def __init__(self, api_key: str, model: str, memory: MemoryStore) -> None:
-        self.client = OpenAI(api_key=api_key)
+        self.client = OpenAI(
+    api_key=api_key,
+    base_url="https://openrouter.ai/api/v1"
+)
         self.model = model
         self.memory = memory
 
